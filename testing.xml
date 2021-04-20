@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Test Suite" verbose="1">
+    <test name="Regression Tests iOS">
+        <parameter name="bundleId" value="com.bcad.blu.uat" />
+        <parameter name="platformVersion" value="14.4" />
+        <parameter name="xcodeOrgId" value="R4N3H2DJCM" />
+        <parameter name="udid" value="00008030-001E64E22629802E" />
+        <classes>
+            <class name="MyRunner.RunneriOS">
+
+            </class>
+        </classes>
+    </test>
+</suite>
