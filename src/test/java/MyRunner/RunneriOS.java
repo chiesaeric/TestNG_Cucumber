@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
 
 @CucumberOptions(
         features = {"src/test/resources/Features"},
-        tags = {"@bluSaving"},
+        tags = {"@TransferRegression3"},
         glue= {"StepDefinitions"},
         plugin = { "pretty","html:target/cucumber-reports"}
 )
@@ -78,7 +78,7 @@ public class RunneriOS extends AbstractTestNGCucumberTests {
         capabilities.setCapability("noReset", "false");
         capabilities.setCapability("xcodeSigningId", "iPhone Developer");
         capabilities.setCapability("xcodeOrgId", xcodeOrgId);
-        connection = new IOSDriver(new URL("http://10.121.8.99:4723/wd/hub"), capabilities);
+        connection = new IOSDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         connection.manage().timeouts().implicitlyWait(18, TimeUnit.SECONDS);
 
         wait = new WebDriverWait(connection, 5);

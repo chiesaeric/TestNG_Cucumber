@@ -67,7 +67,7 @@ public class TransferStepDef extends RunneriOS {
     @When("^Berada di halaman Home screen dengan login akun \"([^\"]*)\" password \"([^\"]*)\"$")
     public void berada_di_halaman_Home_screen_dengan_login_akun(String username, String password) throws InterruptedException {
         Boolean checkExist,checkOTP;
-        //driver.resetApp();
+        driver.resetApp();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         try{
             checkExist = driver.findElement(pars.getbjectLocator("login_btnLoginDenganAkunLain")).isDisplayed();
@@ -330,7 +330,13 @@ public class TransferStepDef extends RunneriOS {
     @Then("^Tidak terdapat section Transaksi Favorit Terakhir$")
     public void tidak_terdapat_section_Transaksi_Favorit_Terakhir() throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        assert driver.findElement(pars.getbjectLocator("lblBelumAdaFav")).isDisplayed()==true;
+        Boolean checkFav;
+        try{
+            checkFav = driver.findElement(pars.getbjectLocator("dashboard_lblBelumAdaFav")).isDisplayed();
+        }catch (Exception e){
+            checkFav = false;
+        }
+        assert checkFav==true;
         FunctionalLib.takeSnapShot(driver,capturePath,featureName,intScenarioNum,"");
         //throw new PendingException();
     }
@@ -340,12 +346,12 @@ public class TransferStepDef extends RunneriOS {
         // Write code here that turns the phrase above into concrete actions
         Boolean checkFav;
         try{
-            checkFav = driver.findElement(pars.getbjectLocator("lblBelumAdaFav")).isDisplayed();
+            checkFav = driver.findElement(pars.getbjectLocator("dashboard_lblBelumAdaFav")).isDisplayed();
         }catch (Exception e){
             checkFav = false;
         }
         assert checkFav==false;
-        FunctionalLib.takeSnapShot(driver,capturePath,featureName,intScenarioNum, "lblBelumAdaFav");
+        FunctionalLib.takeSnapShot(driver,capturePath,featureName,intScenarioNum, "");
         //throw new PendingException();
     }
 

@@ -3,21 +3,21 @@ Feature: Transfer
 
   @TransferRegression
   Scenario: 1. Verifikasi Layar homescreen dengan kondisi user tidak pernah melakukan transfer ke rekening favorit
-    Given Berada di halaman Home screen dengan login akun "087877828955" password "Password123!"
+    Given Login Berada di halaman Home screen dengan login akun "087877828955" password "Password123!"
     When Check list favorit Home screen
     Then Tidak terdapat section Transaksi Favorit Terakhir
 
   @TransferRegression
   Scenario: 2. Verifikasi Layar homescreen dengan kondisi user pernah melakukan transfer ke rekening favorit
-    Given Berada di halaman Home screen dengan login akun "087877828950" password "Password123!"
+    Given Login Berada di halaman Home screen dengan login akun "087877828950" password "Password123!"
     When Check list favorit Home screen
     Then Terdapat section Transaksi Favorit Terakhir :Gambar default icon transfer,Alias (jika ada)
 
-  @TransferRegression
+  @TransferRegression3
   Scenario: 3. Transfer tanpa keterangan
     Given Login Berada di halaman Home screen dengan login akun "085367465756" password "Password123!"
     When  Go to homescreen saldo "awal tujuan"
-    And   Berada di halaman Home screen dengan login akun "087877828955" password "Password123!"
+    And   Berada di halaman Home screen dengan login akun "081299988881" password "Password123!"
     And   Go to homescreen saldo "awal sumber"
     And   Go to halaman limit "awal"
     And   Klik Transaksi
